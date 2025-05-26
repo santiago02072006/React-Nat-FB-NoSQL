@@ -6,9 +6,10 @@ export default function Home() {
 
   useEffect(() => {
     const obtenerDatos = async () => {
-      const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=1025");
+      const res = await fetch("https://fakestoreapi.com/products");
       const json = await res.json();
-      setData(json.results);
+      setData(json);
+
     };
 
     obtenerDatos();
@@ -17,20 +18,16 @@ export default function Home() {
   return (
     <ScrollView>
       <View style={styles.lista}>
-        {data.map((pokemon, index) => {
-          const id = pokemon.url.split("/")[6];
-          return (
-            <View key={index} style={styles.item}>
-              <Text>{id} - {pokemon.name}</Text>
-              <Image
-                source={{
-                  uri: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`,
-                }}
-                style={styles.imagen}
-              />
-            </View>
-          );
-        })}
+        {data.map((product, index) => (
+          <View key={index} style={styles.item}>
+            <Text>{product.id} - {product.title}</Text>
+            <Image
+              source={{ uri: product.image }}
+              style={styles.imagen}
+            />
+          </View>
+        ))}
+
       </View>
     </ScrollView>
   );

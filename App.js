@@ -11,7 +11,7 @@ import { auth } from './firebase/firebaseConfig';
 import Login from './src/componentes/Login';
 import Registro from './src/componentes/Registro';
 import Home from './src/componentes/Home';
-import Original from './src/componentes/Original';
+import JuegoTriviaPrecio from './src/componentes/Original';
 import Perfil from './src/componentes/Perfil';
 import Logout from './src/componentes/Logout';
 
@@ -23,7 +23,7 @@ function AppTabs() {
   return (
     <Tab.Navigator>
       <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Original" component={Original} />
+      <Tab.Screen name="Original" component={JuegoTriviaPrecio} />
       <Tab.Screen name="Perfil" component={Perfil} />
       <Tab.Screen name="Logout" component={Logout} />
     </Tab.Navigator>
